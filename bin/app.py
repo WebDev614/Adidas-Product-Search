@@ -1,8 +1,17 @@
 import streamlit as st
 
-def display_images_from_urls(image_urls):
-    for url in image_urls:
-        st.image(url)
+def display_images_in_row(image_urls):
+    # Define the number of columns based on the number of images
+    num_columns = len(image_urls)
+
+    # Create columns to display images in a row
+    columns = st.beta_columns(num_columns)
+
+    # Display each image in a separate column
+    for i, url in enumerate(image_urls):
+        with columns[i]:
+            st.image(url)
+
 
 # list of urls
 image_urls = ['https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
