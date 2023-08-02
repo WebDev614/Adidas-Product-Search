@@ -13,4 +13,8 @@ html_string = """
     </div>
   </div>
 </div>
+
+<div class="image-grid">
+  {images}
+</div>
 """
