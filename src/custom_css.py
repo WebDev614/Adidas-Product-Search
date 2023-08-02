@@ -2,6 +2,22 @@
 
 css_string = """
 <style>
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: center;
+      margin: 10px 0;
+    }
+
+    .image-item {
+      margin: 5px;
+    }
+
     .flip-card {
       background-color: transparent;
       width: 100%;
