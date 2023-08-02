@@ -13,18 +13,23 @@ def display_images(image_info_list, images_per_row=4, image_width=300):
     num_images = len(image_info_list)
     num_rows = (num_images + images_per_row - 1) // images_per_row
 
+    images_html = ""
     for row in range(num_rows):
         start_index = row * images_per_row
         end_index = min((row + 1) * images_per_row, num_images)
-        columns = st.columns(end_index - start_index)
 
+        row_html = ""
         for i in range(start_index, end_index):
             image_info = image_info_list[i]
-            with columns[i - start_index]:
-                st.markdown(
-                    html_string.format(url=image_info['url'], image_width=image_width, description=image_info['description']),
-                    unsafe_allow_html=True
-                )
+            image_html = html_string.format(url=image_info['url'], image_width=image_width, description=image_info['description'])
+            row_html += f"<div class='image-item'>{image_html}</div>"
+
+        images_html += f"<div class='image-row'>{row_html}</div>"
+
+    st.markdown(
+        html_string.format(images=images_html),
+        unsafe_allow_html=True
+    )
 
 
 # list of urls
