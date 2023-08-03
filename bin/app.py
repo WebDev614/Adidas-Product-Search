@@ -2,12 +2,6 @@ import streamlit as st
 import os
 import sys
 
-current_path = os.path.dirname(os.path.abspath(__file__))
-parent_folder_path = os.path.abspath(os.path.join(current_path, os.pardir))
-sys.path.append(parent_folder_path)
-
-
-
 
 # list of urls
 image_info_list = [
@@ -79,7 +73,7 @@ def display_product_info(image_info_list):
 
 def main():
     # Custom CSS styling for navigation bar
-    with open("src/styles.css") as f:
+    with open("../src/styles.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
     st.write('<div class="navbar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"></div>', unsafe_allow_html=True)
