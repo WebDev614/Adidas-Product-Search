@@ -6,74 +6,87 @@ current_path = os.path.dirname(os.path.abspath(__file__))
 parent_folder_path = os.path.abspath(os.path.join(current_path, os.pardir))
 sys.path.append(parent_folder_path)
 
-from src.custom_css import css_string
-from src.custom_html import html_string
 
-def display_images(image_info_list, images_per_row=4, image_width=300):
-    num_images = len(image_info_list)
-    num_rows = (num_images + images_per_row - 1) // images_per_row
-
-    images_html = ""
-    for row in range(num_rows):
-        start_index = row * images_per_row
-        end_index = min((row + 1) * images_per_row, num_images)
-
-        row_html = ""
-        for i in range(start_index, end_index):
-            image_info = image_info_list[i]
-            image_html = html_string.format(url=image_info['url'], image_width=image_width, description=image_info['description'])
-            row_html += f"<div class='image-item'>{image_html}</div>"
-
-        images_html += f"<div class='image-row'>{row_html}</div>"
-
-    st.markdown(
-        html_string.format(images=images_html),
-        unsafe_allow_html=True
-    )
 
 
 # list of urls
-image_info_list = [{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
-    "description": "shirt 1"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/986bd0fce531401c9c9cad12010a8df6_9366/Graphic_Tee_White_GU3637_01_laydown.jpg',
-    "description": "shirt 2"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/b3abdc62d2594c2b97a5ad1200d1b8a4_9366/Long_Sleeve_Graphic_Tee_White_GU1468_01_laydown.jpg',
-    "description": "shirt 3"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
-    "description": "shirt 4"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/b3abdc62d2594c2b97a5ad1200d1b8a4_9366/Long_Sleeve_Graphic_Tee_White_GU1468_01_laydown.jpg',
-    "description": "shirt 5"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
-    "description": "shirt 6"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/b3abdc62d2594c2b97a5ad1200d1b8a4_9366/Long_Sleeve_Graphic_Tee_White_GU1468_01_laydown.jpg',
-    "description": "shirt 7"
-},
-{
-    "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
-    "description": "shirt 8"
-}
-
+image_info_list = [
+    {
+        "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
+        "description": "Shirt 1",
+        "product": "Short Sleeve",
+        "price": "25"
+    },
+    {
+        "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
+        "description": "Shirt 1",
+        "product": "Short Sleeve",
+        "price": "25"
+    },
+    {
+        "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
+        "description": "Shirt 1",
+        "product": "Short Sleeve",
+        "price": "25"
+    },
+    {
+        "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
+        "description": "Shirt 1",
+        "product": "Short Sleeve",
+        "price": "25"
+    },
+    {
+        "url": 'https://assets.adidas.com/images/w_600,f_auto,q_auto/435ebc4133ec458e85b6ad3500e3a5ec_9366/Short_Sleeve_Graphic_Tee_White_GV5159_01_laydown.jpg',
+        "description": "Shirt 1",
+        "product": "Short Sleeve",
+        "price": "25"
+    }
 ]
+
 
 st.set_page_config(layout="wide")
 
-# Apply custom CSS for the flip effect
-st.markdown(css_string, unsafe_allow_html=True)
+# # Apply custom CSS for the flip effect
+# st.markdown(css_string, unsafe_allow_html=True)
 
 
+def display_product_info(image_info_list):
+    for i in range(0, len(image_info_list), 4):
+        col1, col2, col3, col4 = st.columns(4)
 
-st.title("Display Images from URLs")
-display_images(image_info_list)
+        col1.image(image_info_list[i]["url"], use_column_width=True, width=200)
+        col1.subheader(image_info_list[i]["product"])
+        col1.text("Price: $" + image_info_list[i]["price"])
+        col1.text(image_info_list[i]["description"])
+
+        if i+1 < len(image_info_list):
+            col2.image(image_info_list[i+1]["url"], use_column_width=True, width=200)
+            col2.subheader(image_info_list[i+1]["product"])
+            col2.text("Price: $" + image_info_list[i+1]["price"])
+            col2.text(image_info_list[i+1]["description"])
+
+        if i+2 < len(image_info_list):
+            col3.image(image_info_list[i+2]["url"], use_column_width=True, width=200)
+            col3.subheader(image_info_list[i+2]["product"])
+            col3.text("Price: $" + image_info_list[i+2]["price"])
+            col3.text(image_info_list[i+2]["description"])
+
+        if i+3 < len(image_info_list):
+            col4.image(image_info_list[i+3]["url"], use_column_width=True, width=200)
+            col4.subheader(image_info_list[i+3]["product"])
+            col4.text("Price: $" + image_info_list[i+3]["price"])
+            col4.text(image_info_list[i+3]["description"])
+
+def main():
+    # Custom CSS styling for navigation bar
+    with open("src/styles.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
+    st.write('<div class="navbar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"></div>', unsafe_allow_html=True)
+
+    st.title("Product Display App")
+    user_input = st.text_input("What can I help you look for?", "")
+    display_product_info(image_info_list)
+
+if __name__ == "__main__":
+    main()
