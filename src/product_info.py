@@ -1,4 +1,12 @@
+from column_dict import create_column_dict
+
+
+
 def product_info(response, image_dict):
+
+
+    image_dict, description_dict, price_dict, url_dict = create_column_dict()
+    
     product_info = []
     product_names = []
 
