@@ -10,7 +10,7 @@ sys.path.append(parent_folder_path)
 from src.qa_chain import create_qa_chain
 from src.column_dict import create_column_dict
 from src.display_product_info import display_product_info
-from src.product_info import product_info
+from src.create_product_info import create_info
 
 from langchain.vectorstores import FAISS
 from langchain.embeddings import OpenAIEmbeddings
@@ -39,8 +39,7 @@ def main():
     response = qa_chain.run(user_input)
     st.write(response.split("\n")[0].split(".")[1])
 
-    image_dict, description_dict, price_dict, url_dict = create_column_dict()
-    product_info_list = product_info(response, image_dict)
+    product_info_list = create_info(response)
     display_product_info(product_info_list)
 
 if __name__ == "__main__":
