@@ -16,7 +16,7 @@ from langchain.embeddings import OpenAIEmbeddings
 
 os.getenv("OPENAI_API_KEY")
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="Adidas Product Recommender", layout="wide")
 
 
 def main():
@@ -29,8 +29,6 @@ def main():
     # Custom CSS styling for navigation bar
     with open("src/styles.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-
-    st.set_page_config(page_title="Adidas Product Recommender")
 
     st.write('<div class="navbar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"></div>', unsafe_allow_html=True)
 
