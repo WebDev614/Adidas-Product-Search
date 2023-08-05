@@ -6,7 +6,6 @@ from langchain.embeddings import OpenAIEmbeddings
 
 os.getenv("OPENAI_API_KEY")
 
-
 data_path = "./data/adidas_usa_descriptions.csv"
 db_path = "./vectordb"
 
