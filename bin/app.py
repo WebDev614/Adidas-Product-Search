@@ -30,8 +30,11 @@ def main():
     with open("src/styles.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+    st.set_page_config(page_title="Adidas Product Recommender")
+
     st.write('<div class="navbar"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/2560px-Adidas_Logo.svg.png"></div>', unsafe_allow_html=True)
 
+    st.title("Adidas Product Recommender")
     user_input = st.text_input("What can I help you look for?", "")
     qa_chain = create_qa_chain(vector_db)
     response = qa_chain.run(user_input)
