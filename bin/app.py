@@ -37,7 +37,7 @@ def main():
     qa_chain = create_qa_chain(vector_db)
     response = qa_chain.run(user_input)
     if response:
-        st.write(response.split("\n")[0].split(".")[1])
+        st.write(response)
 
         product_info_list = create_info(response)
         display_product_info(product_info_list)
