@@ -49,7 +49,7 @@ The packages and libraries required for this project are in the `requirements.tx
 
 1. Clone the repository to your local machine using the following command:
 ```
-git clone https://github.com/zhikaichen99/Langchain-Document-Chat.git
+git clone hhttps://github.com/zhikaichen99/Adidas-Product-Search.git
 ```
 2. Navigate to repository
 3. Obtain an `OpenAI` API Key
