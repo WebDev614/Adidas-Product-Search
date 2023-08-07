@@ -61,7 +61,11 @@ OPENAI_API_KEY=YOUR_OPENAI_API_KEY
 ```
 pip install -r requirements.txt
 ```
-6. Run the Streamlit application:
+6. Run `ingest.py` if there is no vector database or if you want to create a new vector database using your own data.
+```
+python ./bin/ingest.py
+```
+7. Run the Streamlit application:
 ```
 streamlit run ./bin/app.py
 ```
