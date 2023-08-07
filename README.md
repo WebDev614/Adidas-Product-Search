@@ -2,6 +2,12 @@
 
 Using `Langchain` and `OpenAI` to create a product search platform that enables users to find desired Adidas products through search queries.
 
+![Example 1](./images/image1.png)
+
+![Example 2](./images/image2.png)
+
+
+
 ## Project Motivation
 
 The motivation for this project was to see how generative AI can be leveraged for different kinds of applications. In this case, how generative AI can be used in the retail space.
@@ -16,8 +22,8 @@ The motivation for this project was to see how generative AI can be leveraged fo
 │   ├── adidas_usa_descriptions.csv         # csv file
 │   └── adidas_usa.csv                      # csv file
 ├── images                                  # folder containing images used in ReadME
-│   ├── img1.jpg                            # image 1
-│   └── img2.jpg                            # image 2
+│   ├── images.png                          # image 1
+│   └── images.png                          # image 2
 ├── notebooks                               # jupyter notebook
 │   ├── adidas-product-recommender.ipynb    # main notebook     
 ├── src                                     # folder containing functions
