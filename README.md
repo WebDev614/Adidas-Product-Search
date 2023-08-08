@@ -2,6 +2,8 @@
 
 Using `Langchain` and `OpenAI` to create a product search platform that enables users to find desired Adidas products through search queries.
 
+Medium Article: https://medium.com/@zhikaichen1999/product-finder-online-shopping-with-langchain-and-openai-a6842a98358e
+
 ![Example 1](./images/image1.png)
 
 ![Example 2](./images/image2.png)
